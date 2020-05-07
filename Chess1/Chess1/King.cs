@@ -74,6 +74,10 @@ namespace Chess1
             if (Math.Abs(move.to.x - move.from.x) <= 1 && Math.Abs(move.to.y - move.from.y) <= 1 &&
                 ((Math.Abs(move.to.x - move.from.x) + Math.Abs(move.to.y - move.from.y) > 0)))
             {
+                BoardSquare squareKing = ChessBoard.getPiecesByColor(board.board, (this.colour == "WHITE") ? "BLACK" : "WHITE")[0];
+                Position posKing = squareKing.position;
+                if ((Math.Abs(move.to.x - posKing.x) == 1 && Math.Abs(move.to.y - posKing.y) == 1) || (Math.Abs(move.to.x - posKing.x) == 0 && Math.Abs(move.to.y - posKing.y) == 1) || (Math.Abs(move.to.x - posKing.x) == 1 && Math.Abs(move.to.y - posKing.y) == 0))
+                    return false;
                 return board.getSquare(move.to).piece == null || board.getSquare(move.to).piece.colour != colour;
             }
             return false;

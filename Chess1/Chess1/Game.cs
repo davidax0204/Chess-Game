@@ -29,13 +29,16 @@ namespace Chess1
 
                 if ( piece == null)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("************** You tired to move an EMPTY cell, please try again *************");
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
                 else
                 if (!(piece.colour == activePlayer.colorName))
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("************* You are a '{0}' but you tried to move a '{1}' piece ************", activePlayer.colorName, piece.colour);
                     Console.WriteLine();
                     continue;
@@ -73,8 +76,11 @@ namespace Chess1
 
             if (piece == null || (flagMoveValidation == false))
             {
-                Console.WriteLine("************* Invalid move *************");
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.WriteLine("************* Invalid move !!! *************");
                 Console.WriteLine();
+                Console.BackgroundColor = ConsoleColor.Black;
+
                 return;
             }
             // last cell 
@@ -108,8 +114,26 @@ namespace Chess1
             ifcheck = ChessBoard.CheckMate(chessBoard, piece.colour, true);
             if (ifcheck > 0)
             {
-                Console.WriteLine("************* Found Check sutuation . Try other one *************");
-                Console.WriteLine();
+                if (ifcheck > 1)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("************* M A T E ! ! ! *************");
+                    Console.WriteLine();
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("************* Found Check sutuation . Try other one *************");
+                    Console.WriteLine();
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+
+                }
+
                 chessBoard.board = ChessBoard.GetClonedBoard(BordBackup);
                 if (playerBackup == "WHITE")
                 {

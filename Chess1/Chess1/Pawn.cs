@@ -107,13 +107,18 @@ namespace Chess1
             {
                 while (flag == false)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("{0} player, Your pawn is being promoted! Please choose which piece you want to promote", pieceFrom.colour);
                     Console.WriteLine("                 (B)ishop || K(N)ight || (Q)ueen || (R)ook                            ");
+                    Console.ForegroundColor = ConsoleColor.White;
                     newPiece = Console.ReadLine();
                     newPiece = ChessBoard.inputValidationPromotion(newPiece);
+
                     if (String.IsNullOrEmpty(newPiece))
                     {
-                        Console.WriteLine("************Input was invalid, please try again*************");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("************ Input was invalid, please try again *************");
+                        Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
                     flag = true;
