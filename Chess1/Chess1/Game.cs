@@ -114,25 +114,13 @@ namespace Chess1
             ifcheck = ChessBoard.CheckMate(chessBoard, piece.colour, true);
             if (ifcheck > 0)
             {
-                if (ifcheck > 1)
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("************* M A T E ! ! ! *************");
-                    Console.WriteLine();
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
-                }
-                else
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("************* Found Check sutuation . Try other one *************");
-                    Console.WriteLine();
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("************* While The Moving Opend Check.  Try other one *************");
+                Console.WriteLine();
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
 
-                }
 
                 chessBoard.board = ChessBoard.GetClonedBoard(BordBackup);
                 if (playerBackup == "WHITE")
@@ -143,6 +131,38 @@ namespace Chess1
                 {
                     whitePlayer.isActive = false;
                     blackPlayer.isActive = true;
+                }
+
+            }
+
+            //  Mate checking
+            else
+            {
+                if (playerBackup == "WHITE")
+                    playerBackup = "BLACK";
+                else
+                    playerBackup = "WHITE";
+
+                ifcheck = ChessBoard.CheckMate(chessBoard, playerBackup, true);
+
+                if (ifcheck > 1)
+                { 
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("************* M A T E TO " + playerBackup + " ! ! ! *************");
+                    Console.WriteLine();
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("************* C H E C K TO " + playerBackup + " *************");
+                    Console.WriteLine();
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+
                 }
 
             }
