@@ -12,6 +12,8 @@ namespace Chess1
         public BoardSquare[] black_board;
 
         public ChessBoard chessBoard;
+        public bool isMate;
+        public int stepCountWithoutKill;
 
 
         public Game()
@@ -41,6 +43,7 @@ namespace Chess1
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("************* You are a '{0}' but you tried to move a '{1}' piece ************", activePlayer.colorName, piece.colour);
                     Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.White;
                     continue;
                 }
 
@@ -98,12 +101,14 @@ namespace Chess1
                     whitePlayer.isActive = false;
                     blackPlayer.isActive = true;
                     this.chessBoard.lastWhiteStep = lastStep;
+
                 }
                 else
                 {
                     whitePlayer.isActive = true;
                     blackPlayer.isActive = false;
                     this.chessBoard.lastBlackStep = lastStep;
+
                 }
             }
 
@@ -114,13 +119,25 @@ namespace Chess1
             ifcheck = ChessBoard.CheckMate(chessBoard, piece.colour, true);
             if (ifcheck > 0)
             {
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("************* While The Moving Opend Check.  Try other one *************");
-                Console.WriteLine();
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.White;
+                if (ifcheck > 1)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("************* M A T E ! ! ! *************");
+                    Console.WriteLine();
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("************* Found Check sutuation . Try other one *************");
+                    Console.WriteLine();
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
 
+                }
 
                 chessBoard.board = ChessBoard.GetClonedBoard(BordBackup);
                 if (playerBackup == "WHITE")
@@ -134,8 +151,6 @@ namespace Chess1
                 }
 
             }
-
-            //  Mate checking
             else
             {
                 if (playerBackup == "WHITE")
@@ -143,10 +158,10 @@ namespace Chess1
                 else
                     playerBackup = "WHITE";
 
-                ifcheck = ChessBoard.CheckMate(chessBoard, playerBackup, true);
+                ifcheck = ChessBoard.CheckMate(chessBoard, playerBackup,  true);
 
                 if (ifcheck > 1)
-                { 
+                {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("************* M A T E TO " + playerBackup + " ! ! ! *************");
@@ -154,7 +169,7 @@ namespace Chess1
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-                else
+                else if (ifcheck == 1)
                 {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.White;
@@ -163,6 +178,12 @@ namespace Chess1
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
 
+                }
+                else {
+                    if (move.to == null)
+                        stepCountWithoutKill++;
+                    else
+                        stepCountWithoutKill = 0;
                 }
 
             }

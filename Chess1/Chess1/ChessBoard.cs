@@ -28,7 +28,7 @@ namespace Chess1
                 {
                     if ((i + j) % 2 == 0)
                     {
-                        board[i, j] = new BoardSquare("BLACK",new Position(i,j));
+                        board[i, j] = new BoardSquare("BLACK", new Position(i, j));
                     }
                     else
                     {
@@ -69,7 +69,7 @@ namespace Chess1
             for (int i = 0; i < 4; i++)
             {
                 board[i, 1].piece = new Pawn("WHITE");
- //               board[i, 6].piece = new Pawn("BLACK");
+                //               board[i, 6].piece = new Pawn("BLACK");
             }
             board[2, 0].piece = new King("WHITE");
             board[4, 0].piece = new Rook("WHITE");
@@ -118,7 +118,7 @@ namespace Chess1
             {
                 string printCell = "";
                 string printCell_ = "";
-                string printEmpty = "         ";                
+                string printEmpty = "         ";
                 print = " " + (j + 1) + "  (" + j + ")  ";
                 print_ = "         ";
 
@@ -140,7 +140,7 @@ namespace Chess1
                     }
                     printEmpty = printEmpty + "|      ";
                 }
-                print_ = print_ + printCell_+"|";
+                print_ = print_ + printCell_ + "|";
                 print = print + printCell + "|";
                 Console.WriteLine(printEmpty + "|");
                 Console.WriteLine(print);
@@ -175,7 +175,7 @@ namespace Chess1
             {
                 string printCell = "";
                 string printCell_ = "";
-                print = " " + (j + 1) + "  ("+j+")  ";
+                print = " " + (j + 1) + "  (" + j + ")  ";
                 print_ = "         ";
 
                 for (int i = 0; i < 8; i++)
@@ -221,7 +221,7 @@ namespace Chess1
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("'From' Input was invalid, please try again");
-                Console.ForegroundColor = ConsoleColor.White;               
+                Console.ForegroundColor = ConsoleColor.White;
                 return getMoveInput(player);
             }
 
@@ -282,13 +282,13 @@ namespace Chess1
 
             return true;
         }
-        public static string inputValidationPromotion (string input)
+        public static string inputValidationPromotion(string input)
         {
             string str = input.Replace(" ", "");
             str = str.ToUpper();
             if (str.Length != 1)
                 return "";
-            if (str !=  "K" && str != "B" && str != "N" && str != "Q")
+            if (str != "K" && str != "B" && str != "N" && str != "Q")
                 return "";
 
             return str;
@@ -325,7 +325,7 @@ namespace Chess1
             {
                 for (int i = 0; i < 8; i++)
                 {
-                    if (board[i, j].piece != null && board[i,j].piece.colour==colour)
+                    if (board[i, j].piece != null && board[i, j].piece.colour == colour)
                     {
                         if (board[i, j].piece.weight != Piece.king)
                         {
@@ -395,7 +395,7 @@ namespace Chess1
                     continue;
 
                 step_x = Math.Sign(Ox - Kx);
-                step_y = Math.Sign(Oy - Ky); 
+                step_y = Math.Sign(Oy - Ky);
                 ox = Kx + step_x;
                 oy = Ky + step_y;
 
@@ -423,7 +423,7 @@ namespace Chess1
                                    ) return true;
                                 else if (fig == Piece.rook && (step_x == 0 || step_y == 0) &&
                                     opponent[j].piece.weight == Piece.queen
-                                   ) return true; 
+                                   ) return true;
                                 else if (fig == Piece.queen && step_x != 0 && step_y != 0 &&
                                     opponent[j].piece.weight == Piece.bishop
                                    ) return true;
@@ -464,7 +464,7 @@ namespace Chess1
                 Ox = 0,
                 Oy = 0;
             //Extract dangeries Piaces from opponent
-            int fig, ox, oy, k = 0;
+            int fig, ox, oy;
             for (int i = 0; i < opponent.Length; i++)
             {
 
@@ -539,7 +539,7 @@ namespace Chess1
                                 {
                                     if (opponent[j].piece.weight == Piece.pawn)
                                     {
-                                        if (Math.Abs(ox - Kx) == 1 && Math.Abs(oy - Ky) == 1) 
+                                        if (Math.Abs(ox - Kx) == 1 && Math.Abs(oy - Ky) == 1)
                                             goto NewOxOy;
                                         else
                                         {
@@ -559,21 +559,21 @@ namespace Chess1
                                     else if (fig == Piece.bishop && step_x != 0 && step_y != 0 &&
                                         opponent[j].piece.weight == Piece.queen
                                        ) goto NewOxOy;
-                                                                    }
+                                }
                             }
                         }
                     }
                     ox = ox + step_x;
                     oy = oy + step_y;
                 }
-                NewOxOy:
+            NewOxOy:
                 {
                     Ox = ox;
                     Oy = oy;
                     ++result;
                 }
             }
-            if (result == 0 )          
+            if (result == 0)
                 return result;
 
 
@@ -621,7 +621,7 @@ namespace Chess1
 
             TempBackup = ChessBoard.GetClonedBoard(chBoard.board);
 
-            if (v_shield) 
+            if (v_shield)
             {
                 chBoard.getSquare(v_Move.to).piece = Asqu.piece;
                 chBoard.getSquare(v_Move.from).piece = null;
@@ -629,50 +629,50 @@ namespace Chess1
                 chBoard.board = ChessBoard.GetClonedBoard(TempBackup);
             }
 
-            if (ifcheck != 0 ) 
+            if (ifcheck != 0)
                 ++result;
 
             /////////////////  Check King moving  ///////////////////
-            King kng = (active[0].piece as King); 
+            King kng = (active[0].piece as King);
             v_Fom.x = Kx;
             v_Fom.y = Ky;
             v_Move.from = v_Fom;
 
             for (int i = -1; i < 2; i++)
-            for (int j = -1; j < 2; j++)
-            {
-
-                if (i == 0 && j == 0)
-                    continue;
-
-                v_To.x = Kx + i;
-                v_To.y = Ky + j;
-                if (v_To.x >= 0 && v_To.x <= 7 && v_To.y >= 0 && v_To.y <= 7)
+                for (int j = -1; j < 2; j++)
                 {
 
-                    v_Move.to = v_To;
-                    if (kng.validateMove(v_Move, chBoard))
-                    {
-                        chBoard.getSquare(v_Move.to).piece = kng;
-                        chBoard.getSquare(v_Move.from).piece = null;
-                        v_WhiteP = ChessBoard.getPiecesByColor(chBoard.board, "WHITE");
-                        v_BlackP = ChessBoard.getPiecesByColor(chBoard.board, "BLACK");
+                    if (i == 0 && j == 0)
+                        continue;
 
-                        if (!CheckMate(chBoard.board, v_WhiteP, v_BlackP, p_colour))
+                    v_To.x = Kx + i;
+                    v_To.y = Ky + j;
+                    if (v_To.x >= 0 && v_To.x <= 7 && v_To.y >= 0 && v_To.y <= 7)
+                    {
+
+                        v_Move.to = v_To;
+                        if (kng.validateMove(v_Move, chBoard))
                         {
-                            result = 1;
-                            goto EndKingMoving;
+                            chBoard.getSquare(v_Move.to).piece = kng;
+                            chBoard.getSquare(v_Move.from).piece = null;
+                            v_WhiteP = ChessBoard.getPiecesByColor(chBoard.board, "WHITE");
+                            v_BlackP = ChessBoard.getPiecesByColor(chBoard.board, "BLACK");
+
+                            if (!CheckMate(chBoard.board, v_WhiteP, v_BlackP, p_colour))
+                            {
+                                result = 1;
+                                goto EndKingMoving;
+                            }
+                            else
+                                result = 2;
+                            chBoard.getSquare(v_Move.to).piece = null;
+                            chBoard.getSquare(v_Move.from).piece = kng;
+
                         }
-                        else
-                            result = 2;
-                        chBoard.getSquare(v_Move.to).piece = null;
-                        chBoard.getSquare(v_Move.from).piece = kng;
+
 
                     }
-
-
                 }
-            }
             EndKingMoving:
             return result;
         }
@@ -716,5 +716,219 @@ namespace Chess1
 
             return boardClone;
         }
+        private int IfPresentsCheck(ChessBoard chBoard, string p_colour, ref int Kx, ref int Ky, ref int p_Ox, ref int p_Oy)
+        {
+            int result;
+            BoardSquare[,] board = chBoard.board;
+//            BoardSquare[,] BordBackup, TempBackup;
+            BoardSquare[] v_WhiteP, v_BlackP;
+
+//            BordBackup = ChessBoard.GetClonedBoard(board);
+            v_WhiteP = ChessBoard.getPiecesByColor(board, "WHITE");
+            v_BlackP = ChessBoard.getPiecesByColor(board, "BLACK");
+
+
+            Position Kp = (p_colour == "BLACK" ? v_BlackP[0].position : v_WhiteP[0].position);
+            BoardSquare[] opponent = p_colour == "BLACK" ? v_WhiteP : v_BlackP;
+            BoardSquare[] active = p_colour == "BLACK" ? v_BlackP : v_WhiteP;
+            result = 0;
+
+            int step_x, step_y,
+                Ox = 0,
+                Oy = 0;
+
+            //Extract dangeries Piaces from opponent
+            int fig, ox, oy;
+            for (int i = 0; i < opponent.Length; i++)
+            {
+
+                if (result == 2)
+                    return result;
+
+                if (opponent[i] == null || opponent[i].piece == null) continue;
+
+                Ox = opponent[i].position.x;
+                Oy = opponent[i].position.y;
+                p_Ox = Ox;
+                p_Oy = Oy;
+                fig = opponent[i].piece.weight;
+                if
+                (
+                    (fig == Piece.king && active[0].piece.weight == Piece.king)
+                    &&
+                    (Math.Abs(Kx - Ox) < 2 && Math.Abs(Ky - Oy) <= 2) ||
+                    (Math.Abs(Kx - Ox) <= 2 && Math.Abs(Ky - Oy) < 2)
+                )
+                {
+                    result = -100;
+                    return result;
+                }
+
+                else if
+                (
+                    fig == Piece.knight &&
+                    (Math.Abs(Kx - Ox) == 2 && Math.Abs(Ky - Oy) == 1) ||
+                    (Math.Abs(Kx - Ox) == 1 && Math.Abs(Ky - Oy) == 2)
+                )
+                    ++result;
+
+                else if
+                (
+                    fig == Piece.pawn &&
+                    (
+                        (p_colour == "BLACK" && Kx - Ox == 1 && Ky - Oy == 1) ||
+                        (p_colour == "WHITE" && Kx - Ox == -1 && Ky - Oy == -1)
+                    )
+                )
+                    ++result;
+
+                else if (fig == Piece.knight || fig == Piece.pawn || fig == Piece.king)
+                    continue;
+
+                else if (fig == Piece.rook && Math.Abs(Kx - Ox) != 0 && Math.Abs(Ky - Oy) != 0)
+                    continue;
+
+                else if (fig == Piece.bishop && Math.Abs(Kx - Ox) != Math.Abs(Ky - Oy))
+                    continue;
+
+                else if (fig == Piece.queen && Math.Abs(Kx - Ox) != Math.Abs(Ky - Oy)
+                    && Math.Abs(Kx - Ox) != 0 && Math.Abs(Ky - Oy) != 0)
+                    continue;
+
+                step_x = Math.Sign(Ox - Kx);
+                step_y = Math.Sign(Oy - Ky);
+                ox = Kx + step_x;
+                oy = Ky + step_y;
+
+                while (Math.Abs(ox) < 8 && Math.Abs(oy) < 8 && Math.Abs(ox) >= 0 && Math.Abs(oy) >= 0)
+                {
+                    if (board[ox, oy].piece != null)
+                    {
+                        if (ox == Ox && oy == Oy)
+                            goto NewOxOy;
+                        else if (board[ox, oy].piece.colour == p_colour)
+                        {
+                            result = -1;
+                            goto NewOxOy;
+                        }
+                        else
+                        {
+                            for (int j = 0; j < opponent.Length; j++)
+                            {
+                                // Going by the "traectoria" of the Check
+                                if (opponent[j] != null && opponent[j].position.x == ox && opponent[j].position.y == oy)
+                                {
+                                    if (fig == Piece.pawn)
+                                    {
+                                        if
+                                        (
+                                            (p_colour == "BLACK" && Kx - Ox == 1 && Ky - Oy == 1) ||
+                                            (p_colour == "WHITE" && Kx - Ox == -1 && Ky - Oy == -1)
+                                        )
+                                            goto NewOxOy;
+                                        else
+                                        {
+                                            result = -1;
+                                            goto NewOxOy;
+                                        }
+                                    }
+                                    if (fig == Piece.queen && (step_x == 0 || step_y == 0) &&
+                                        opponent[j].piece.weight == Piece.rook
+                                       ) goto NewOxOy;
+                                    else if (fig == Piece.rook && (step_x == 0 || step_y == 0) &&
+                                        opponent[j].piece.weight == Piece.queen
+                                       ) goto NewOxOy;
+                                    else if (fig == Piece.queen && step_x != 0 && step_y != 0 &&
+                                        opponent[j].piece.weight == Piece.bishop
+                                       ) goto NewOxOy;
+                                    else if (fig == Piece.bishop && step_x != 0 && step_y != 0 &&
+                                        opponent[j].piece.weight == Piece.queen
+                                       ) goto NewOxOy;
+                                }
+                            }
+                        }
+                    }
+                    ox = ox + step_x;
+                    oy = oy + step_y;
+                }
+            NewOxOy:
+                {
+                    Ox = ox;
+                    Oy = oy;
+                    ++result;
+                }
+            }
+            p_Ox = Ox;
+            p_Oy = Oy;
+            return result;
+        }
+
+        private int ifPossableKingMoving
+        (
+            ChessBoard chBoard, BoardSquare[] active
+        )
+        {
+            /////////////////  Check King moving  ///////////////////
+            string p_colour = active[0].piece.colour;
+            int result= 0;
+            BoardSquare[] v_WhiteP, v_BlackP;
+
+            Position v_From = new Position(0, 0);
+            Position v_To = new Position(0, 0);
+            Move v_Move = new Move(0, 0, 0, 0);
+            int Kx = active[0].position.x,
+                Ky = active[0].position.y; 
+                
+            King kng = (active[0].piece as King);
+            v_From.x = Kx;
+            v_From.y = Ky;
+            v_Move.from = v_From;
+
+            for (int i = -1; i < 2; i++)
+                for (int j = -1; j < 2; j++)
+                {
+
+                    if (i == 0 && j == 0)
+                        continue;
+
+                    v_To.x = Kx + i;
+                    v_To.y = Ky + j;
+                    if (v_To.x >= 0 && v_To.x <= 7 && v_To.y >= 0 && v_To.y <= 7)
+                    {
+
+                        v_Move.to = v_To;
+                        if (kng.validateMove(v_Move, chBoard))
+                        {
+                            BoardSquare[,] boardClone = ChessBoard.GetClonedBoard(chBoard.board);
+
+                            chBoard.getSquare(v_Move.to).piece = kng;
+                            chBoard.getSquare(v_Move.from).piece = null;
+
+                            v_WhiteP = ChessBoard.getPiecesByColor(chBoard.board, "WHITE");
+                            v_BlackP = ChessBoard.getPiecesByColor(chBoard.board, "BLACK");
+
+                            bool flgCheck = CheckMate(chBoard.board, v_WhiteP, v_BlackP, p_colour);
+
+                            chBoard.board = ChessBoard.GetClonedBoard(boardClone);
+
+
+                            if (!flgCheck)
+                            {
+                                result = 1;
+                                goto EndKingMoving;
+                            }
+                            else
+                                result = 2;
+                        }
+
+
+                    }
+                }
+            EndKingMoving:
+            return result;
+        }
     }
+
 }
+
+
