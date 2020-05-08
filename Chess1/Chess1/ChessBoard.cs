@@ -434,7 +434,7 @@ namespace Chess1
                         }
                     }
                     ox = ox + step_x;
-                    oy = oy + step_y;
+                    oy =oy + step_y;
                 }
             }
             return result;
@@ -569,6 +569,70 @@ namespace Chess1
 
             return boardClone;
         }
+        
+        private static int find_Shield(ChessBoard chBoard, BoardSquare[] active, string p_colour, bool v_shield)
+        {
+            int result = 0;
+            int
+                step_x, step_y, ox, oy,
+                Kx = active[0].position.x,
+                Ky = active[0].position.y,
+                Ox = 0,
+                Oy = 0;
+
+            BoardSquare[,] TempBackup;
+            BoardSquare Asqu = null;
+            Position v_Fom = new Position(0, 0);
+            Position v_To = new Position(0, 0);
+            Move v_Move = new Move(0, 0, 0, 0);
+            int ifcheck = 0;
+
+
+            step_x = Math.Sign(Ox - Kx);
+            step_y = Math.Sign(Oy - Ky);
+            ox = Kx + step_x;
+            oy = Ky + step_y;
+            while (ox <= Ox && oy <= Oy)
+            {
+                for (int i = 0; i < active.Length; i++)
+                {
+                    if (active[i] == null) continue;
+                    Asqu = active[i];
+                    v_Fom.x = Asqu.position.x;
+                    v_Fom.y = Asqu.position.y;
+                    v_To.x = ox;
+                    v_To.y = oy;
+                    v_Move.from = v_Fom;
+                    v_Move.to = v_To;
+                    if (Asqu.piece.weight == Piece.knight)
+                        v_shield = (active[i].piece as Knight).validateMove(v_Move, chBoard);
+                    else if (Asqu.piece.weight == Piece.bishop)
+                        v_shield = (active[i].piece as Bishop).validateMove(v_Move, chBoard);
+                    else if (Asqu.piece.weight == Piece.rook)
+                        v_shield = (active[i].piece as Rook).validateMove(v_Move, chBoard);
+                    else if (Asqu.piece.weight == Piece.queen)
+                        v_shield = (active[i].piece as Queen).validateMove(v_Move, chBoard);
+                    else if (Asqu.piece.weight == Piece.pawn)
+                        v_shield = (active[i].piece as Pawn).validateMove(v_Move, chBoard);
+                    if (v_shield)
+                        return result;
+                }
+                ox = ox + step_x;
+                oy = oy + step_y;
+            }
+
+            TempBackup = ChessBoard.GetClonedBoard(chBoard.board);
+
+            if (v_shield)
+            {
+                chBoard.getSquare(v_Move.to).piece = Asqu.piece;
+                chBoard.getSquare(v_Move.from).piece = null;
+                ifcheck = CheckMate(chBoard, p_colour, false);
+                chBoard.board = ChessBoard.GetClonedBoard(TempBackup);
+            }
+            return result;
+        }
+
         private static int IfPresentsCheck(ChessBoard chBoard, string p_colour, ref int Kx, ref int Ky, ref int p_Ox, ref int p_Oy)
         {
             int result;
