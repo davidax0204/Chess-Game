@@ -577,7 +577,8 @@ namespace Chess1
                 return result;
 
 
-            /////////////////  find Check Shield  /////////////////// 
+            /////////////////  find Check Shield  ///////////////////
+
             BoardSquare Asqu = null;
             Position v_Fom = new Position(0, 0);
             Position v_To = new Position(0, 0);
@@ -633,47 +634,7 @@ namespace Chess1
                 ++result;
 
             /////////////////  Check King moving  ///////////////////
-            King kng = (active[0].piece as King);
-            v_Fom.x = Kx;
-            v_Fom.y = Ky;
-            v_Move.from = v_Fom;
-
-            for (int i = -1; i < 2; i++)
-                for (int j = -1; j < 2; j++)
-                {
-
-                    if (i == 0 && j == 0)
-                        continue;
-
-                    v_To.x = Kx + i;
-                    v_To.y = Ky + j;
-                    if (v_To.x >= 0 && v_To.x <= 7 && v_To.y >= 0 && v_To.y <= 7)
-                    {
-
-                        v_Move.to = v_To;
-                        if (kng.validateMove(v_Move, chBoard))
-                        {
-                            chBoard.getSquare(v_Move.to).piece = kng;
-                            chBoard.getSquare(v_Move.from).piece = null;
-                            v_WhiteP = ChessBoard.getPiecesByColor(chBoard.board, "WHITE");
-                            v_BlackP = ChessBoard.getPiecesByColor(chBoard.board, "BLACK");
-
-                            if (!CheckMate(chBoard.board, v_WhiteP, v_BlackP, p_colour))
-                            {
-                                result = 1;
-                                goto EndKingMoving;
-                            }
-                            else
-                                result = 2;
-                            chBoard.getSquare(v_Move.to).piece = null;
-                            chBoard.getSquare(v_Move.from).piece = kng;
-
-                        }
-
-
-                    }
-                }
-            EndKingMoving:
+            result = ifPossableKingMoving(chBoard, active);
             return result;
         }
 
@@ -716,7 +677,7 @@ namespace Chess1
 
             return boardClone;
         }
-        private int IfPresentsCheck(ChessBoard chBoard, string p_colour, ref int Kx, ref int Ky, ref int p_Ox, ref int p_Oy)
+        private static int IfPresentsCheck(ChessBoard chBoard, string p_colour, ref int Kx, ref int Ky, ref int p_Ox, ref int p_Oy)
         {
             int result;
             BoardSquare[,] board = chBoard.board;
@@ -863,10 +824,7 @@ namespace Chess1
             return result;
         }
 
-        private int ifPossableKingMoving
-        (
-            ChessBoard chBoard, BoardSquare[] active
-        )
+        private static int ifPossableKingMoving(  ChessBoard chBoard, BoardSquare[] active  )
         {
             /////////////////  Check King moving  ///////////////////
             string p_colour = active[0].piece.colour;
