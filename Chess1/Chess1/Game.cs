@@ -13,16 +13,23 @@ namespace Chess1
 
         public ChessBoard chessBoard;
         public bool isMate;
-        public int stepCountWithoutKill;
-
+        public int stepCounterWithoutKillinWhite;
+        public int stepCounterWithoutKillinBlack;
 
         public Game()
         {
             chessBoard = new ChessBoard();
+            isMate = false;
             while (true)
             {
                 ChessBoard.Print(chessBoard.board);
-
+                if (isMate==true)
+                    break;
+                if (this.stepCounterWithoutKillinWhite >= 50 || this.stepCounterWithoutKillinBlack>=50)
+                {
+                    Console.WriteLine("its a tie");
+                    break;
+                }
                 Player activePlayer = whitePlayer.isActive ? whitePlayer : blackPlayer;
                 // get moving
                 Move newMove = chessBoard.getMoveInput(activePlayer);
@@ -49,9 +56,16 @@ namespace Chess1
 
                 makeMove(newMove, piece);
             }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.WriteLine("*************************GAME OVER*************************");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.BackgroundColor = ConsoleColor.Black;
+
         }
         public void makeMove(Move move, Piece piece)
         {
+            Move move1 = move;
             int ifcheck;
             BoardSquare[,] BordBackup = ChessBoard.GetClonedBoard(chessBoard.board);
             string playerBackup = piece.colour; // color of active player
@@ -127,6 +141,7 @@ namespace Chess1
                     Console.WriteLine();
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
+                    isMate = true;
                 }
                 else
                 {
@@ -158,7 +173,7 @@ namespace Chess1
                 else
                     playerBackup = "WHITE";
 
-                ifcheck = ChessBoard.CheckMate(chessBoard, playerBackup,  true);
+                ifcheck = ChessBoard.CheckMate(chessBoard, playerBackup, false);
 
                 if (ifcheck > 1)
                 {
@@ -168,6 +183,7 @@ namespace Chess1
                     Console.WriteLine();
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
+                    isMate = true;
                 }
                 else if (ifcheck == 1)
                 {
@@ -177,13 +193,23 @@ namespace Chess1
                     Console.WriteLine();
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
-
                 }
-                else {
-                    if (move.to == null)
-                        stepCountWithoutKill++;
                     else
-                        stepCountWithoutKill = 0;
+                {
+                    if (piece.colour == "WHITE")
+                    {
+                        if (BordBackup[move.to.x, move.to.y].piece == null)
+                            stepCounterWithoutKillinWhite++;
+                        else
+                            stepCounterWithoutKillinWhite = 0;
+                    }
+                    else
+                    {
+                        if (BordBackup[move.to.x, move.to.y].piece == null)
+                            stepCounterWithoutKillinBlack++;
+                        else
+                            stepCounterWithoutKillinBlack = 0;
+                    }
                 }
 
             }

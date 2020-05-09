@@ -440,12 +440,12 @@ namespace Chess1
             return result;
         }
 
-        public static int CheckMate(ChessBoard chBoard, string p_colour, bool Shield)
+        public static int CheckMate(ChessBoard chBoard, string p_colour, bool OnlyTestCheck)
         {
 
-            int result;
+            int result,resultshield;
             BoardSquare[,] board = chBoard.board;
-            BoardSquare[,] BordBackup, TempBackup;
+            BoardSquare[,] BordBackup;
             BoardSquare[] v_WhiteP, v_BlackP;
 
             BordBackup = ChessBoard.GetClonedBoard(board);
@@ -458,72 +458,20 @@ namespace Chess1
             BoardSquare[] active = p_colour == "BLACK" ? v_BlackP : v_WhiteP;
             result = 0;
 
-            int step_x, step_y, ox, oy,
+            int  //ox, oy,
                 Kx = Kp.x,
                 Ky = Kp.y,
                 Ox = 0,
                 Oy = 0;
+
             //Extract dangeries Piaces from opponent
             result = IfPresentsCheck(chBoard, p_colour, ref Kx, ref Ky, ref Ox, ref Oy);
-            if (result == 0)
+            if (result == 0 || OnlyTestCheck)
                 return result;
-
-
-            /////////////////  find Check Shield  ///////////////////
-
-            BoardSquare Asqu = null;
-            Position v_Fom = new Position(0, 0);
-            Position v_To = new Position(0, 0);
-            Move v_Move = new Move(0, 0, 0, 0);
-            int ifcheck = 0;
-            bool v_shield = false;
-
-
-            step_x = Math.Sign(Ox - Kx);
-            step_y = Math.Sign(Oy - Ky);
-            ox = Kx + step_x;
-            oy = Ky + step_y;
-            while (ox <= Ox && oy <= Oy)
-            {
-                for (int i = 0; i < active.Length; i++)
-                {
-                    if (active[i] == null) continue;
-                    Asqu = active[i];
-                    v_Fom.x = Asqu.position.x;
-                    v_Fom.y = Asqu.position.y;
-                    v_To.x = ox;
-                    v_To.y = oy;
-                    v_Move.from = v_Fom;
-                    v_Move.to = v_To;
-                    if (Asqu.piece.weight == Piece.knight)
-                        v_shield = (active[i].piece as Knight).validateMove(v_Move, chBoard);
-                    else if (Asqu.piece.weight == Piece.bishop)
-                        v_shield = (active[i].piece as Bishop).validateMove(v_Move, chBoard);
-                    else if (Asqu.piece.weight == Piece.rook)
-                        v_shield = (active[i].piece as Rook).validateMove(v_Move, chBoard);
-                    else if (Asqu.piece.weight == Piece.queen)
-                        v_shield = (active[i].piece as Queen).validateMove(v_Move, chBoard);
-                    else if (Asqu.piece.weight == Piece.pawn)
-                        v_shield = (active[i].piece as Pawn).validateMove(v_Move, chBoard);
-                    if (v_shield)
-                        return result;
-                }
-                ox = ox + step_x;
-                oy = oy + step_y;
-            }
-
-            TempBackup = ChessBoard.GetClonedBoard(chBoard.board);
-
-            if (v_shield)
-            {
-                chBoard.getSquare(v_Move.to).piece = Asqu.piece;
-                chBoard.getSquare(v_Move.from).piece = null;
-                ifcheck = CheckMate(chBoard, p_colour, false);
-                chBoard.board = ChessBoard.GetClonedBoard(TempBackup);
-            }
-
-            if (ifcheck != 0)
-                ++result;
+            
+            resultshield = find_Shield(chBoard, active, p_colour,Ox,Oy);
+            if (resultshield == 0 )
+                return result;
 
             /////////////////  Check King moving  ///////////////////
             result = ifPossableKingMoving(chBoard, active);
@@ -570,22 +518,21 @@ namespace Chess1
             return boardClone;
         }
         
-        private static int find_Shield(ChessBoard chBoard, BoardSquare[] active, string p_colour, bool v_shield)
+        private static int find_Shield(ChessBoard chBoard, BoardSquare[] active, string p_colour, int Ox, int Oy)
         {
-            int result = 0;
+            int result = 1;
             int
                 step_x, step_y, ox, oy,
                 Kx = active[0].position.x,
-                Ky = active[0].position.y,
-                Ox = 0,
-                Oy = 0;
+                Ky = active[0].position.y;
 
             BoardSquare[,] TempBackup;
             BoardSquare Asqu = null;
             Position v_Fom = new Position(0, 0);
             Position v_To = new Position(0, 0);
             Move v_Move = new Move(0, 0, 0, 0);
-            int ifcheck = 0;
+            bool v_shield = false;
+            int ifcheck = 1;
 
 
             step_x = Math.Sign(Ox - Kx);
@@ -615,21 +562,26 @@ namespace Chess1
                     else if (Asqu.piece.weight == Piece.pawn)
                         v_shield = (active[i].piece as Pawn).validateMove(v_Move, chBoard);
                     if (v_shield)
-                        return result;
+                        goto Shield_test;
                 }
                 ox = ox + step_x;
                 oy = oy + step_y;
             }
 
-            TempBackup = ChessBoard.GetClonedBoard(chBoard.board);
+            return result;
+
+            Shield_test:
 
             if (v_shield)
             {
+                TempBackup = ChessBoard.GetClonedBoard(chBoard.board);
                 chBoard.getSquare(v_Move.to).piece = Asqu.piece;
                 chBoard.getSquare(v_Move.from).piece = null;
                 ifcheck = CheckMate(chBoard, p_colour, false);
                 chBoard.board = ChessBoard.GetClonedBoard(TempBackup);
             }
+            if (ifcheck == 0)
+                result = 0;
             return result;
         }
 
@@ -654,7 +606,7 @@ namespace Chess1
 
             //Extract dangeries Piaces from opponent
             int fig, ox, oy;
-            for (int i = 0; i < opponent.Length; i++)
+            for (int i = 1; i < opponent.Length; i++)
             {
 
                 if (result == 2)
