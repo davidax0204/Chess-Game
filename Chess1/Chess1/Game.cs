@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.NetworkInformation;
 
 namespace Chess1
@@ -11,25 +12,34 @@ namespace Chess1
         public BoardSquare[] white_board;
         public BoardSquare[] black_board;
 
+        List<BoardSquare[,]> listBoards = new List<BoardSquare[,]>();
+
         public ChessBoard chessBoard;
         public bool isMate;
         public int stepCounterWithoutKillinWhite;
         public int stepCounterWithoutKillinBlack;
+        public bool isEqul3;
 
         public Game()
         {
             chessBoard = new ChessBoard();
+            BoardSquare[,] newBoard = ChessBoard.GetClonedBoard(chessBoard.board);
+            listBoards.Add(newBoard);
             isMate = false;
             while (true)
             {
                 ChessBoard.Print(chessBoard.board);
                 if (isMate==true)
                     break;
-                if (this.stepCounterWithoutKillinWhite >= 50 || this.stepCounterWithoutKillinBlack>=50)
+                if (this.stepCounterWithoutKillinWhite >= 50 || this.stepCounterWithoutKillinBlack>=50 || isEqul3==true)
                 {
-                    Console.WriteLine("its a tie");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("************************* ITS A TIE !!! *************************");
+                    Console.WriteLine();
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
                 }
+
                 Player activePlayer = whitePlayer.isActive ? whitePlayer : blackPlayer;
                 // get moving
                 Move newMove = chessBoard.getMoveInput(activePlayer);
@@ -59,6 +69,7 @@ namespace Chess1
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.BackgroundColor = ConsoleColor.Red;
             Console.WriteLine("*************************GAME OVER*************************");
+            Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Black;
 
@@ -133,18 +144,6 @@ namespace Chess1
             ifcheck = ChessBoard.CheckMate(chessBoard, piece.colour, true);
             if (ifcheck > 0)
             {
-                if (ifcheck > 1)
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("************* M A T E ! ! ! *************");
-                    Console.WriteLine();
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    isMate = true;
-                }
-                else
-                {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine("************* Found Check sutuation . Try other one *************");
@@ -152,7 +151,6 @@ namespace Chess1
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
 
-                }
 
                 chessBoard.board = ChessBoard.GetClonedBoard(BordBackup);
                 if (playerBackup == "WHITE")
@@ -194,21 +192,56 @@ namespace Chess1
                     Console.BackgroundColor = ConsoleColor.Black;
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-                    else
+                else if (ifcheck == -1)
                 {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("************* S t a g   C h e c k " + playerBackup + " *************");
+                    Console.WriteLine();
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+                else
+                {
+                    int counter = 0;
+                    isEqul3 = false;
+                    BoardSquare[,] newBoard = ChessBoard.GetClonedBoard(chessBoard.board);
+                    listBoards.Add(newBoard);
+                    for (int i = 0 ; i <listBoards.Count; i++)
+                    {
+                        BoardSquare[,] item = listBoards[i];
+                        if (ChessBoard.isEquals(item, chessBoard.board) == true)
+                        {
+                            counter++;
+                        }
+                    }
+                    if (counter == 3)
+                    {
+                        isEqul3 = true;
+                    }
+
                     if (piece.colour == "WHITE")
                     {
+                        
                         if (BordBackup[move.to.x, move.to.y].piece == null)
+                        {
                             stepCounterWithoutKillinWhite++;
+                        }
                         else
+                        {
                             stepCounterWithoutKillinWhite = 0;
+                    }
                     }
                     else
                     {
                         if (BordBackup[move.to.x, move.to.y].piece == null)
+                        {
                             stepCounterWithoutKillinBlack++;
+                        }
                         else
+                        {
                             stepCounterWithoutKillinBlack = 0;
+                        }
                     }
                 }
 

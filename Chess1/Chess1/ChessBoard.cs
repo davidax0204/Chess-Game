@@ -15,7 +15,9 @@ namespace Chess1
         string patternInt = "12345678";
 
         public BoardSquare[,] board = new BoardSquare[8, 8];
+        public BoardSquare[,] board2 = new BoardSquare[8, 8];
 
+        //public BoardSquare[][,] boardCollection = new BoardSquare[8, 8];
         public BoardSquare lastWhiteStep;
         public BoardSquare lastBlackStep;
 
@@ -29,17 +31,21 @@ namespace Chess1
                     if ((i + j) % 2 == 0)
                     {
                         board[i, j] = new BoardSquare("BLACK", new Position(i, j));
+                        board2[i, j] = new BoardSquare("BLACK", new Position(i, j));
+
                     }
                     else
                     {
                         board[i, j] = new BoardSquare("WHITE", new Position(i, j));
+                        board2[i, j] = new BoardSquare("WHITE", new Position(i, j));
+
                     }
                 }
             }
             this.PlacePieces();
         }
 
-        private void PlacePieces_()
+        private void PlacePieces__()
         {
             for (int i = 0; i < 8; i++)
             {
@@ -50,7 +56,7 @@ namespace Chess1
             board[1, 0].piece = new Knight("WHITE");
             board[2, 0].piece = new Bishop("WHITE");
             board[3, 0].piece = new Queen("WHITE");
-            board[4, 0].piece = new King("WHITE");
+            board[4, 3].piece = new King("WHITE");
             board[5, 0].piece = new Bishop("WHITE");
             board[6, 0].piece = new Knight("WHITE");
             board[7, 0].piece = new Rook("WHITE");
@@ -909,10 +915,43 @@ namespace Chess1
             return result;
         }
 
+        public static bool isEquals(BoardSquare[,] board, BoardSquare[,] board1)
+        {
+            bool ret=true;
+            for (int i = 0; i < board.GetLength(0); i++)
+            {
+                for (int j = 0; j < board.GetLength(1); j++)
+                {
+
+                    BoardSquare board_square = board[i, j];
+                    BoardSquare board1_square = board1[i, j];
+
+                    if (board_square.piece == null && board1_square.piece == null)
+                        continue;
+                    if (board_square.piece == null && board1_square.piece != null)
+                    {
+                        ret = false;
+                        break;
+                    } 
+                    if (board_square.piece != null && board1_square.piece == null)
+                    {
+                        ret = false;
+                        break;
+                    }
+                    if (board_square.piece != null && board1_square.piece != null)
+                        if (
+                           (board_square.piece.colour != board1_square.piece.colour) ||
+                           (board_square.piece.weight != board1_square.piece.weight))
+                        {
+                            ret = false;
+                            break;
+                        }
+                }
+            }
+            return ret;
+        }
     }
 
 }
-
-
 
 

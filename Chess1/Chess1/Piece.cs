@@ -28,7 +28,15 @@ namespace Chess1
         {
             return string.Format("{0} {1} ",text,this.name);
         }
-        public virtual bool validateMove(Move move, ChessBoard board) { return true; }
+        public virtual bool validateMove(Move move, ChessBoard board)
+        {
+            if (move.to.x > 7 || move.to.x < 0 ||
+                move.to.y > 7 || move.to.y < 0 || 
+                move.from.x > 7 || move.from.x < 0 || 
+                move.from.y > 7 || move.from.y < 0)
+                return false;
+            return true;
+        }
         public virtual object Clone()
         {
             return this.MemberwiseClone();

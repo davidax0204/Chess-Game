@@ -10,12 +10,11 @@ namespace Chess1
             this.name = "R";
             this.weight = Piece.rook;
         }
-        public override string ToString()
-        {
-            return string.Format("Pawn {0} ", this.name);
-        }
         public override bool validateMove(Move move, ChessBoard board)
         {
+            if (base.validateMove(move, board) == false)
+                return false;
+
             if ((Math.Abs(move.to.x - move.from.x) > 0) ^ (Math.Abs(move.to.y - move.from.y) > 0))
             {
                 // End position possible

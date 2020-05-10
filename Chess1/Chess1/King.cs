@@ -11,6 +11,8 @@ namespace Chess1
         }
         public override bool validateMove(Move move, ChessBoard board)
         {
+            if (base.validateMove(move, board) == false)
+                return false;
             // castling the KING
             Piece pieceKing = (board.getSquare(move.from).piece == null) ? null : board.getSquare(move.from).piece;
             Piece pieceTo =  (board.getSquare(move.to).piece == null) ? null : board.getSquare(move.to).piece;

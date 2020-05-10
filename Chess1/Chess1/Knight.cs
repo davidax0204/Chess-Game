@@ -11,6 +11,8 @@ namespace Chess1
         }
         public override bool validateMove(Move move, ChessBoard board)
         {
+            if (base.validateMove(move, board) == false)
+                return false;
             if ((Math.Abs(move.to.x-move.from.x)==2 && Math.Abs(move.to.y-move.from.y)==1)
                 || (Math.Abs(move.to.x - move.from.x) == 1 && Math.Abs(move.to.y - move.from.y) == 2))
             {
