@@ -19,12 +19,12 @@ namespace Chess1
         }
         public string GetColorPiece()
         {
-            if (this.colour == "BLACK")
+            if (this.colour == "BLACK")                     // which color is the piece
                 return "B";
             else
                 return "W";
         }
-        public  string print(string text)
+        public string print(string text)
         {
             return string.Format("{0} {1} ",text,this.name);
         }
@@ -33,13 +33,13 @@ namespace Chess1
             if (move.to.x > 7 || move.to.x < 0 ||
                 move.to.y > 7 || move.to.y < 0 || 
                 move.from.x > 7 || move.from.x < 0 || 
-                move.from.y > 7 || move.from.y < 0)
+                move.from.y > 7 || move.from.y < 0)                     // basic validation that the input is not out of bounds of the board
                 return false;
             return true;
         }
         public virtual object Clone()
         {
-            return this.MemberwiseClone();
+            return this.MemberwiseClone();                              // method that clones the object 
         }
     }
 }

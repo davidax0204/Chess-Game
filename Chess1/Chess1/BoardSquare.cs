@@ -2,28 +2,16 @@
 
 namespace Chess1
 {
-    class BoardSquare
+    // this class is presenting cell and the piece inside of it and the cords in the board
+    class BoardSquare                   
     {
-        public string SquereColor;
+        public string SquereColor;          
         public Piece piece;
         public Position position;
         public BoardSquare (string color,Position position)
         {
             this.SquereColor = color;
             this.position = position;
-        }
-        public string GetShortName ()
-        {
-            if (this.SquereColor == "BLACK")
-                return "B";
-            else if (this.SquereColor == "WHITE")
-                return "W";
-            else
-                return "EE"; // return "Empty" for empty cell
-        }
-        public virtual object Clone()
-        {
-            return this.MemberwiseClone();
         }
     }
 }

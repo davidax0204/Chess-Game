@@ -1,0 +1,113 @@
+C:\Users\David\Desktop\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfoInputs.cache
+C:\Users\David\Desktop\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfo.cs
+C:\Users\David\Desktop\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.exe
+C:\Users\David\Desktop\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.deps.json
+C:\Users\David\Desktop\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.json
+C:\Users\David\Desktop\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.dev.json
+C:\Users\David\Desktop\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.genruntimeconfig.cache
+C:\Users\David\Desktop\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csprojAssemblyReference.cache
+C:\C#\Chess_david3\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csproj.CoreCompileInputs.cache
+C:\C#\Chess_david3\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfoInputs.cache
+C:\C#\Chess_david3\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfo.cs
+C:\C#\Chess_david3\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.dll
+C:\C#\Chess_david3\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.pdb
+C:\C#\Chess_david3\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.exe
+C:\C#\Chess_david3\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.deps.json
+C:\C#\Chess_david3\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.json
+C:\C#\Chess_david3\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.dev.json
+C:\C#\Chess_david3\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.dll
+C:\C#\Chess_david3\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.pdb
+C:\C#\Chess_david3\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.genruntimeconfig.cache
+C:\C#\Chess_david3\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csprojAssemblyReference.cache
+C:\C#\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.exe
+C:\C#\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.deps.json
+C:\C#\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.json
+C:\C#\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.dev.json
+C:\C#\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.dll
+C:\C#\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.pdb
+C:\C#\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csproj.CoreCompileInputs.cache
+C:\C#\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfoInputs.cache
+C:\C#\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfo.cs
+C:\C#\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.dll
+C:\C#\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.pdb
+C:\C#\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.genruntimeconfig.cache
+C:\Users\David\Desktop\5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.exe
+C:\Users\David\Desktop\5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.deps.json
+C:\Users\David\Desktop\5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.json
+C:\Users\David\Desktop\5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.dev.json
+C:\Users\David\Desktop\5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csprojAssemblyReference.cache
+C:\Users\David\Desktop\5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfoInputs.cache
+C:\Users\David\Desktop\5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfo.cs
+C:\Users\David\Desktop\5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.genruntimeconfig.cache
+C:\Ilana\Chess5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.exe
+C:\Ilana\Chess5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.deps.json
+C:\Ilana\Chess5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.json
+C:\Ilana\Chess5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.dev.json
+C:\Ilana\Chess5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.dll
+C:\Ilana\Chess5\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.pdb
+C:\Ilana\Chess5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfoInputs.cache
+C:\Ilana\Chess5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfo.cs
+C:\Ilana\Chess5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.dll
+C:\Ilana\Chess5\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.exe
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.deps.json
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.json
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.dev.json
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfoInputs.cache
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfo.cs
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.genruntimeconfig.cache
+C:\Users\David\Desktop\New folder (5)\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csprojAssemblyReference.cache
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.exe
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.deps.json
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.json
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.dev.json
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csprojAssemblyReference.cache
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfoInputs.cache
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfo.cs
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.genruntimeconfig.cache
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.exe
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.deps.json
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.json
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.dev.json
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csprojAssemblyReference.cache
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfoInputs.cache
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfo.cs
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\final\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.genruntimeconfig.cache
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.exe
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.deps.json
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.json
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.runtimeconfig.dev.json
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\bin\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csproj.AssemblyReference.cache
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfoInputs.cache
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.AssemblyInfo.cs
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.csproj.CoreCompileInputs.cache
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.dll
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.pdb
+C:\Users\David\Desktop\ChessGame clean\Chess\Chess_david4\Chess1\Chess1\obj\Debug\netcoreapp3.1\Chess1.genruntimeconfig.cache

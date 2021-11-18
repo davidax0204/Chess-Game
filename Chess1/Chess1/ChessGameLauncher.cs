@@ -2,11 +2,12 @@
 
 namespace Chess1
 {
-    class StartGame
+    class ChessGameLauncher
     {
         static int Main(string[] args)
         {
-            Game game = new Game();
+            ChessGame game = new ChessGame();     // start the game
+            game.play();
             return 0;
         }
     }
